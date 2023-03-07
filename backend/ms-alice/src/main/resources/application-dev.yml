@@ -1,0 +1,11 @@
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: ${ALICE_POSTGRES_URL}
+    username: ${ALICE_POSTGRES_USER}
+    password: ${ALICE_POSTGRES_PASS}
+    driver-class-name: org.postgresql.Driver
