@@ -17,6 +17,7 @@ public class ItemMock {
         "Item 1 description",
         1.0,
         "kg",
+        "path/to/photo",
         "123456789",
         LocalDate.now(),
         new Category(
@@ -32,6 +33,7 @@ public class ItemMock {
         "Item 1 description",
         1.0,
         "kg",
+        "path/to/photo",
         "123456789",
         LocalDate.now(),
         new ItemResponse.Category(

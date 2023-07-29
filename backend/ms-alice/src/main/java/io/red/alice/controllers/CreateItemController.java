@@ -4,25 +4,25 @@ import io.red.alice.controllers.requests.ItemRequest;
 import io.red.alice.controllers.responses.ItemResponse;
 import io.red.alice.services.CreateItemService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/v1/item")
 public class CreateItemController {
 
-  private final CreateItemService service;
+    private final CreateItemService service;
 
-  public CreateItemController(CreateItemService service) {
-    this.service = service;
-  }
+    public CreateItemController(CreateItemService service) {
+        this.service = service;
+    }
 
-  @PostMapping
-  public ItemResponse createItem(
-      @RequestBody
-      @Valid ItemRequest request){
-    return service.createItem(request);
-  }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ItemResponse createItem(
+            @RequestParam("photo") MultipartFile photo,
+            @ModelAttribute ItemRequest request) {
+        return service.createItem(request, photo);
+    }
 }

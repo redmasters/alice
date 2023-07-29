@@ -10,6 +10,7 @@ public record ItemResponse(
   double weight,
   String unit,
   String barCode,
+  String pathPhoto,
   LocalDate dueDate,
   Category category
 ) {

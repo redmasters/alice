@@ -23,7 +23,6 @@ public class CreateCategoryController {
   public Category createCategory(
       @RequestBody
       @Valid
-      @NotNull(message = "Necessario nomear a categoria")
       CategoryRequest request){
     return service.createCategory(request);
   }

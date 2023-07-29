@@ -10,40 +10,48 @@ import io.red.alice.repositories.ItemRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.nio.file.Path;
 
 @Service
 public class CreateItemService {
 
   private final ItemRepository itemRepository;
   private final CategoryRepository categoryRepository;
+  private final StorageService storageService;
 
-  private static final Logger log = LoggerFactory.getLogger(CreateItemService.class);
+  private static final Logger logger = LoggerFactory.getLogger(CreateItemService.class);
+  private static final String NO_DATA= "NO_DATA";
 
-  public CreateItemService(ItemRepository itemRepository, CategoryRepository categoryRepository) {
+  public CreateItemService(ItemRepository itemRepository, CategoryRepository categoryRepository, StorageService storageService) {
     this.itemRepository = itemRepository;
     this.categoryRepository = categoryRepository;
+    this.storageService = storageService;
   }
 
-  public ItemResponse createItem(ItemRequest request) {
-    log.info("Criando item: {}", request);
+  public ItemResponse createItem(ItemRequest request, MultipartFile photo) {
+    logger.info("Criando item: {}", request);
     var category = categoryRepository.findById(request.categoryId())
         .orElseThrow(() -> new CategoryNotFountException("Category not found"));
 
-    final var newItem = getItem(request, category);
+    var pathPhoto = storageService.store(photo) == null ? Path.of(NO_DATA) : storageService.store(photo);
+    final var newItem = getItem(request, pathPhoto.toString(), category);
 
     final var item = itemRepository.save(newItem);
-    log.info("Item criado: {}", item.getName());
+    logger.info("Item criado: {}", item.getName());
     return itemResponse(item);
 
   }
 
-  private static Item getItem(ItemRequest request, Category category){
+  private static Item getItem(ItemRequest request, String photo, Category category){
     return new Item(
         request.name(),
         request.description(),
         request.weight(),
         request.unit(),
         request.barCode(),
+        photo,
         request.dueDate(),
         new Category(
             category.getId(),
@@ -60,6 +68,7 @@ public class CreateItemService {
         item.getWeight(),
         item.getUnit(),
         item.getBarCode(),
+        item.getPhoto(),
         item.getDueDate(),
         new ItemResponse.Category(
             item.getCategory().getId(),
