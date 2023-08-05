@@ -9,11 +9,15 @@ export class Comp1Component implements OnInit {
   public mensagem: string;
   public valor: number;
   public linkFoto: string;
+  public textoDoForm: string;
+  public senha: string;
   public constructor() {
     console.log("Construtor chamado")
     this.mensagem = "Mensagem do componente 1"
     this.valor = 0;
     this.linkFoto = "../../assets/img.png"
+    this.textoDoForm = "Texto do form"
+    this.senha = "senha";
   }
   ngOnInit(): void {
     console.log("ngOnInit chamado")
@@ -24,4 +28,7 @@ export class Comp1Component implements OnInit {
     // console.log("Valor mudado para " + this.valor)
   }
 
+  public enviarDados() {
+    console.log("Texto do form: " + this.textoDoForm + " Senha: " + this.senha)
+  }
 }
