@@ -1,7 +1,10 @@
 package io.red.alice.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -16,6 +19,8 @@ public class Item {
     private String name;
     @Column(name = "item_description")
     private String description;
+    @Column(name = "item_price")
+    private BigDecimal price;
     @Column(name = "item_weight")
     private double weight;
     @Column(name = "item_unit")
@@ -24,11 +29,22 @@ public class Item {
     private String photo;
     @Column(name = "item_bar_code")
     private String barCode;
+    @Column(name = "item_units_in_stock")
+    private int unitsInStock;
+    @Column(name = "item_active")
+    private boolean active;
+
     @Column(name = "item_due_date")
     private LocalDate dueDate;
     @ManyToOne
     @JoinColumn(name = "fktbl_item_category")
     private Category category;
+    @CreationTimestamp
+    @Column(name = "item_created_at")
+    private LocalDate createdAt;
+    @UpdateTimestamp
+    @Column(name = "item_updated_at")
+    private LocalDate updatedAt;
 
     public Item() {
     }
@@ -95,5 +111,25 @@ public class Item {
 
     public String getPhoto() {
         return photo;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public int getUnitsInStock() {
+        return unitsInStock;
+    }
+
+    public boolean isActive() {
+        return active;
     }
 }
