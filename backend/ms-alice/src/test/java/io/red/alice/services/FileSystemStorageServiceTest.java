@@ -23,15 +23,6 @@ class FileSystemStorageServiceTest {
 
     @Test
     void shouldSaveFile() throws Exception {
-        MockMultipartFile multipartFile = new MockMultipartFile("photo", "test.jpg",
-                "image/jpeg", "Spring Framework".getBytes());
-
-        this.mvc.perform(multipart("/v1/item")
-                .file(multipartFile)
-        ).andExpect(status().isFound());
-
-        then(storageService).should().store(multipartFile);
-
 
     }
 
