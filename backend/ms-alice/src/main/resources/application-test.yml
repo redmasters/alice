@@ -5,8 +5,8 @@ spring:
 
   datasource:
     url: ${ALICE_H2_URL}
-    username: sa
-    password:
+    username: ${ALICE_H2_USER}
+    password: ${ALICE_H2_PASS}
     driver-class-name: org.h2.Driver
 
   h2:
