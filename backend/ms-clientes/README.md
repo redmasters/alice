@@ -1,24 +1,32 @@
-# README
+# API Clientes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Uma API para os Clientes do projeto Alice, que terão um relacionamento com o estoque.
 
-Things you may want to cover:
+## :books: Informações:
 
-* Ruby version
+* Ruby 3.0.2
+* Rails 7.0.7
 
-* System dependencies
+### :question: Como Rodar:
 
-* Configuration
+1. Clone esse repositório: https://github.com/redmasters/alice
+```
+git clone https://github.com/redmasters/alice.git
+```
+2. Entre na pasta do repositório: `alice/backend`
+4. Mude a branch para `12-criação-do-projeto-api-clientes-on-rails`.
+ ```
+ git checkout 12-criação-do-projeto-api-clientes-on-rails
+ ```
+5. Entre na pasta do ms-clientes: `alice/backend/ms-clientes`.
+6. Por fim, rode o servidor com:
+```
+rails s
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### :gear: Ferramentas:
+* VS Code.
+*  Git.
+*  Ruby.
+* Rails.
+*  PostgreSQL.
