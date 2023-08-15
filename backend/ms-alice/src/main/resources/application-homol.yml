@@ -1,0 +1,15 @@
+spring:
+  config:
+    activate:
+      on-profile: homol
+
+  datasource:
+#    url: ${ALICE_SUPABASE_URL}
+#    username: ${ALICE_SUPABASE_USER}
+#    password: ${ALICE_SUPABASE_PASS}
+    url: jdbc:postgresql://db
+    username: postgres
+    password:
+    driver-class-name: org.postgresql.Driver
+
+

@@ -16,10 +16,6 @@ public class Category {
   @Column(name = "category_name")
   private String name;
 
-  @OneToMany(mappedBy = "category")
-  @JoinColumn(name = "fktbl_item_category")
-  private List<Item> item;
-
   public Category() {
   }
 
@@ -42,4 +38,5 @@ public class Category {
   public String getName() {
     return name;
   }
+
 }

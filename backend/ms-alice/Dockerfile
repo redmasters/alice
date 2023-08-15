@@ -1,5 +1,5 @@
-FROM gradle:jdk17-alpine AS builder
-ENV APP_HOME=/app
+FROM arm64v8/gradle:jdk17 AS builder
+ENV APP_HOME=/app/
 WORKDIR $APP_HOME
 COPY build.gradle settings.gradle $APP_HOME
 
@@ -12,7 +12,7 @@ RUN gradle build || return 0
 COPY . .
 RUN gradle clean build
 
-FROM openjdk:17-alpine AS jre-build
+FROM arm64v8/gradle:jdk17 AS jre-build
 # actual container
 ENV ARTIFACT_NAME=ms-alice-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/app
