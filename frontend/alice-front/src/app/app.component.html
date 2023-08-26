@@ -18,11 +18,16 @@
             <a routerLink="/welcome">Welcome</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="link1">Monitor</a>
+            <a routerLink="link1" >Monitor</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="link2">Workplace</a>
+            <a routerLink="link2" [queryParams]="{p1:'abc', p2:'xyz'}">Workplace</a>
           </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="link3">Link 3</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/custom/1234">Link Customizado</a>
         </ul>
       </li>
       <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">

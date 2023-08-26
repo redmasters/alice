@@ -1,8 +1,11 @@
 <div id="">
 
-  Login:
-  <input type="text" [(ngModel)]="textoDoForm">
-  <button (click)="enviarDados()">Enviar</button>
+  <input type="text" id="meuTxt" [(ngModel)]="textoDoForm">
+  <br/>
+  Senha:
+  <input type="password" id="minhaSenha" [(ngModel)]="senha">
+  <input type="checkbox" [(ngModel)]="clicado"> Mostrar senha
+  <button (click)="enviarDados()">Enviar dados</button>
   <br/>
   <p>comp1 works! Mensagem = {{ mensagem }} - {{valor}}</p>
   <button (click)="mudarValor()">Mudar valor</button>

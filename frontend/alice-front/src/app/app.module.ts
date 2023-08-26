@@ -13,12 +13,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import {Comp1Component} from "./componentes/comp1/comp1.component";
 
 registerLocaleData(pt);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Comp1Component
   ],
   imports: [
     BrowserModule,
