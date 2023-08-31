@@ -14,9 +14,9 @@ services:
     environment:
       TZ: "America/Sao_Paulo"
       PROFILE: ${PROFILE}
-      ALICE_H2_URL: ${ALICE_H2_URL}
-      ALICE_H2_USER: ${ALICE_H2_USER}
-      ALICE_H2_PASS: ${ALICE_H2_PASS}
+      ALICE_SUPABASE_URL: ${ALICE_SUPABASE_URL}
+      ALICE_SUPABASE_USER: ${ALICE_SUPABASE_USER}
+      ALICE_SUPABASE_PASS: ${ALICE_SUPABASE_PASS}
     volumes:
       - /home/ALICE:/home/ALICE
       - /etc/localtime:/etc/localtime
