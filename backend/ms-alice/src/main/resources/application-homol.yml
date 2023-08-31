@@ -4,12 +4,9 @@ spring:
       on-profile: homol
 
   datasource:
-#    url: ${ALICE_SUPABASE_URL}
-#    username: ${ALICE_SUPABASE_USER}
-#    password: ${ALICE_SUPABASE_PASS}
-    url: jdbc:postgresql://db
-    username: postgres
-    password:
+    url: ${ALICE_SUPABASE_URL}
+    username: ${ALICE_SUPABASE_USER}
+    password: ${ALICE_SUPABASE_PASS}
     driver-class-name: org.postgresql.Driver
 
 
